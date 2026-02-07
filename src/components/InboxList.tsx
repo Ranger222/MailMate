@@ -2,7 +2,7 @@
 
 import { useUIStore } from "@/store/uiStore";
 import { useMailStore } from "@/store/mailStore";
-import { Star, RefreshCw, Checkbox } from "lucide-react";
+import { Star, RefreshCw } from "lucide-react";
 
 interface InboxListProps {
   viewType: "inbox" | "sent";
