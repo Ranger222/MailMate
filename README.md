@@ -6,7 +6,7 @@ An email application where the AI assistant **controls the UI** through structur
 Natural Language → Structured Intent → Deterministic UI Action → Visible UI Update
 ```
 
-## 🧠 Architecture Overview
+## Architecture Overview
 
 This app explicitly separates:
 - **Mail Services** — Gmail API integration (currently mocked)
@@ -24,7 +24,7 @@ flowchart TD
     G[Gmail Service] --> E
 ```
 
-## 🎯 Core Principles
+## Core Principles
 
 1. **LLM never touches UI directly** — outputs only structured JSON
 2. **All UI changes go through a single Action Dispatcher** — predictable behavior
@@ -32,11 +32,11 @@ flowchart TD
 4. **Mail API is isolated from AI logic** — easy to mock, test, and swap
 
 This guarantees:
-- ✅ Predictability
-- ✅ Debuggability
-- ✅ Clean separation of concerns
+- Predictability
+- Debuggability
+- Clean separation of concerns
 
-## 🚀 Quick Start
+## Quick Start
 
 ```bash
 # Navigate to project
@@ -51,7 +51,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 💬 AI Commands
+## AI Commands
 
 Try these commands in the AI Assistant panel:
 
@@ -65,7 +65,7 @@ Try these commands in the AI Assistant panel:
 | "Clear filters" | Removes all inbox filters |
 | "Send this email" | Sends the current draft |
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 /src
@@ -100,7 +100,7 @@ Try these commands in the AI Assistant panel:
     └── actions.ts            # AIAction type union
 ```
 
-## 🔧 Allowed AI Actions
+## Allowed AI Actions
 
 ```typescript
 type AIAction =
@@ -116,9 +116,9 @@ type AIAction =
   | { action: "CLEAR_FILTERS" }
 ```
 
-⚠️ The LLM may **only** return one of these actions.
+The LLM may **only** return one of these actions.
 
-## 🔄 Real-Time Sync
+## Real-Time Sync
 
 Polling-based real-time sync implemented for simplicity:
 
@@ -128,7 +128,7 @@ setInterval(fetchInbox, 30000) // Every 30 seconds
 
 This is a pragmatic choice that works well for most use cases.
 
-## 🔮 Future Enhancements
+## Future Enhancements
 
 - [ ] Gmail OAuth integration for real emails
 - [ ] OpenAI/Ollama integration for production LLM
@@ -137,6 +137,6 @@ This is a pragmatic choice that works well for most use cases.
 - [ ] Attachment support
 - [ ] Search functionality
 
-## 📄 License
+## License
 
 MIT
