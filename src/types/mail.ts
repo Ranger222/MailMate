@@ -24,7 +24,7 @@ export interface ActiveFilters {
     days?: number;
 }
 
-export type ViewType = "inbox" | "sent" | "compose" | "detail";
+export type ViewType = "inbox" | "sent" | "compose" | "detail" | "thread";
 
 export interface UIState {
     currentView: ViewType;

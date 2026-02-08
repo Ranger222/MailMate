@@ -242,4 +242,22 @@ export const gmailApi = {
 
         return emails;
     },
+
+    // Get thread (conversation) by threadId
+    async getThread(accessToken: string, threadId: string): Promise<Email[]> {
+        const gmail = getGmailClient(accessToken);
+
+        try {
+            const response = await gmail.users.threads.get({
+                userId: "me",
+                id: threadId,
+                format: "full",
+            });
+
+            const messages = response.data.messages || [];
+            return messages.map(parseMessage);
+        } catch {
+            return [];
+        }
+    },
 };

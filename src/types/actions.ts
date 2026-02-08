@@ -12,7 +12,8 @@ export type AIAction =
     | { action: "VIEW_INBOX" }
     | { action: "VIEW_SENT" }
     | { action: "CLEAR_FILTERS" }
-    | { action: "SEARCH_EMAILS"; args: { query: string } };
+    | { action: "SEARCH_EMAILS"; args: { query: string } }
+    | { action: "VIEW_THREAD"; args: { emailId: string } };
 
 // Action names for validation
 export const VALID_ACTIONS = [
@@ -27,6 +28,7 @@ export const VALID_ACTIONS = [
     "VIEW_SENT",
     "CLEAR_FILTERS",
     "SEARCH_EMAILS",
+    "VIEW_THREAD",
 ] as const;
 
 export type ActionName = (typeof VALID_ACTIONS)[number];

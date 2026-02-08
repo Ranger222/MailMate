@@ -117,6 +117,14 @@ export async function dispatch(action: AIAction): Promise<DispatchResult> {
                 message: `Searching for: "${action.args.query}"`,
             };
 
+        case "VIEW_THREAD":
+            uiStore.openEmail(action.args.emailId);
+            uiStore.setView("thread");
+            return {
+                success: true,
+                message: "Viewing conversation",
+            };
+
         default:
             return { success: false, message: "Unknown action" };
     }

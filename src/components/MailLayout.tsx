@@ -1,10 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
+import { useSession } from "next-auth/react";
 import { useUIStore } from "@/store/uiStore";
 import { useMailStore } from "@/store/mailStore";
 import InboxList from "./InboxList";
 import EmailDetail from "./EmailDetail";
+import ThreadView from "./ThreadView";
 import ComposeModal from "./ComposeModal";
 import AssistantPanel from "./AssistantPanel";
 import { AuthButton } from "./AuthButton";
@@ -13,6 +15,7 @@ import { Inbox, Send, Edit, RefreshCw } from "lucide-react";
 const POLL_INTERVAL = 30000;
 
 export default function MailLayout() {
+  const { status } = useSession();
   const currentView = useUIStore((state) => state.currentView);
   const setView = useUIStore((state) => state.setView);
   const openCompose = useUIStore((state) => state.openCompose);
@@ -22,6 +25,9 @@ export default function MailLayout() {
   const loading = useMailStore((state) => state.loading);
 
   useEffect(() => {
+    // Only fetch if session is authenticated or unauthenticated (not loading)
+    if (status === "loading") return;
+
     fetchInbox();
     fetchSent();
 
@@ -30,7 +36,7 @@ export default function MailLayout() {
     }, POLL_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [fetchInbox, fetchSent]);
+  }, [status, fetchInbox, fetchSent]);
 
   const unreadCount = inbox.filter(e => e.unread).length;
 
@@ -197,6 +203,7 @@ export default function MailLayout() {
           {(currentView === "inbox" || currentView === "compose") && <InboxList viewType="inbox" />}
           {currentView === "sent" && <InboxList viewType="sent" />}
           {currentView === "detail" && <EmailDetail />}
+          {currentView === "thread" && <ThreadView />}
         </div>
       </main>
 
