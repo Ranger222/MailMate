@@ -2,6 +2,8 @@
 
 An intelligent email application where an AI assistant controls the UI through natural language commands. Built with Next.js, Gmail API, and Mistral/Gemini LLM.
 
+**[Live Demo](https://mailmate-8guh.onrender.com/)** | [Assessment Guide](./ASSESSMENT_GUIDE.md) | [GitHub](https://github.com/Ranger222/MailMate)
+
 ## Features
 
 - **Gmail Integration** — Real email access via Google OAuth
