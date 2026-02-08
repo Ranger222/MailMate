@@ -17,7 +17,7 @@ You have **two ways** to test this application:
 
 ## Option A: Google Login (Full Experience)
 
-### ⚠️ Important: "Unverified App" Warning
+### WARNING: Important: "Unverified App" Warning
 
 When you click "Sign in with Google," you will see a warning screen that says:
 
@@ -42,20 +42,20 @@ When you click "Sign in with Google," you will see a warning screen that says:
 6. Click **"Continue"**
 
 **What the app can access:**
-- ✅ Read your emails
-- ✅ Send emails on your behalf
-- ✅ View your email address
-- ❌ Cannot access other Google services
-- ❌ Cannot modify account settings
+- - Read your emails
+- - Send emails on your behalf
+- - View your email address
+- - Cannot access other Google services
+- - Cannot modify account settings
 
 ### Testing with Google Login:
 
 Once logged in, you can:
-- ✅ View your real inbox
-- ✅ Send actual emails
-- ✅ Use AI to manage emails with natural language
-- ✅ Search and filter your emails
-- ✅ View email threads/conversations
+- - View your real inbox
+- - Send actual emails
+- - Use AI to manage emails with natural language
+- - Search and filter your emails
+- - View email threads/conversations
 
 ---
 
@@ -77,21 +77,21 @@ http://localhost:3000?mock=true
 ```
 
 The app will automatically use mock data and show a banner:
-> **📋 Mock Data Mode** - Using sample emails for demonstration
+> ** Mock Data Mode** - Using sample emails for demonstration
 
 ### What You Can Test in Mock Mode:
 
-- ✅ UI/UX and Gmail-like interface
-- ✅ AI Assistant commands
-- ✅ Email filtering and search
-- ✅ Compose and draft emails (won't actually send)
-- ✅ Thread/conversation view
-- ✅ All UI interactions
+- - UI/UX and Gmail-like interface
+- - AI Assistant commands
+- - Email filtering and search
+- - Compose and draft emails (won't actually send)
+- - Thread/conversation view
+- - All UI interactions
 
 **Limitations:**
-- ❌ Cannot send real emails
-- ❌ Cannot access real Gmail data
-- ❌ Mock data resets on page refresh
+- - Cannot send real emails
+- - Cannot access real Gmail data
+- - Mock data resets on page refresh
 
 ---
 
@@ -167,7 +167,7 @@ Click the **AI Assistant** button (bottom-right blue icon) and try these command
 
 ## Features to Evaluate
 
-### ✅ Core Features
+### - Core Features
 - [ ] Gmail OAuth integration (Option A) or Mock data (Option B)
 - [ ] AI-controlled UI via natural language
 - [ ] Email list with Gmail-like interface
@@ -176,7 +176,7 @@ Click the **AI Assistant** button (bottom-right blue icon) and try these command
 - [ ] Search functionality
 - [ ] Filter by unread/sender/date
 
-### ✅ Bonus Features
+### - Bonus Features
 - [ ] Email threading/conversation view
 - [ ] Unit tests (run `npm test`)
 - [ ] Real-time sync (30-second polling)
@@ -282,4 +282,4 @@ For questions or issues during assessment:
 - Review code comments for implementation details
 - Run tests to verify functionality
 
-**Thank you for reviewing MailMate!** 🚀
+**Thank you for reviewing MailMate!** 
