@@ -229,10 +229,3 @@ See [render_deployment_guide.md](./render_deployment_guide.md) for detailed inst
 - Check OAuth redirect URIs match exactly
 - Verify `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET`
 
-## License
-
-MIT
-
----
-
-**Built with ❤️ using Next.js, Gmail API, and AI**
