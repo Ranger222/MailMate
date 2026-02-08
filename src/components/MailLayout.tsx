@@ -14,7 +14,11 @@ import { Inbox, Send, Edit, RefreshCw } from "lucide-react";
 
 const POLL_INTERVAL = 30000;
 
-export default function MailLayout() {
+interface MailLayoutProps {
+  mockMode?: boolean;
+}
+
+export default function MailLayout({ mockMode = false }: MailLayoutProps) {
   const { status } = useSession();
   const currentView = useUIStore((state) => state.currentView);
   const setView = useUIStore((state) => state.setView);
@@ -25,8 +29,8 @@ export default function MailLayout() {
   const loading = useMailStore((state) => state.loading);
 
   useEffect(() => {
-    // Only fetch if session is authenticated or unauthenticated (not loading)
-    if (status === "loading") return;
+    // Only fetch if session is authenticated or in mock mode
+    if (status === "loading" && !mockMode) return;
 
     fetchInbox();
     fetchSent();
@@ -36,7 +40,7 @@ export default function MailLayout() {
     }, POLL_INTERVAL);
 
     return () => clearInterval(interval);
-  }, [status, fetchInbox, fetchSent]);
+  }, [status, mockMode, fetchInbox, fetchSent]);
 
   const unreadCount = inbox.filter(e => e.unread).length;
 
